@@ -9,8 +9,9 @@ import javax.swing.*;
 public class Login extends JFrame implements ActionListener {//jframe is a classs  for window and Action listener is a interface to impliment 
 
     //global declaration of the variables that needed to be used by other fuctions
-    JButton login, register;
-
+    JButton login, clear,signUp;
+    JTextField cardTextField;
+    JPasswordField pinTextField;
     Login() {
         // Adding image to Frame 
         setLayout(null);//removing default layout 
@@ -34,20 +35,20 @@ public class Login extends JFrame implements ActionListener {//jframe is a class
         add(cardNo);
 
         //adding textfeilds to enter info
-        JTextField CardTextField = new JTextField();
-        CardTextField.setBounds(310,127,300,30);
-        add(CardTextField); 
+        cardTextField = new JTextField();
+        cardTextField.setBounds(310,127,300,30);
+        add(cardTextField); 
 
         JLabel pin = new JLabel("Pin           :");
         pin.setFont(new Font("Raleway", Font.BOLD, 20));
         pin.setBounds(200, 200 , 300, 40);
         add(pin);
 
-        JTextField PinTextField = new JTextField();
-        PinTextField.setBounds(310, 210, 300, 30);
-        add(PinTextField);
+        pinTextField = new JPasswordField();
+        pinTextField.setBounds(310, 210, 300, 30);
+        add(pinTextField);
 
-        //adding buttons signup or register
+        //adding buttons signup or clear
         login = new JButton("SIGN IN");
         login.setBounds(300 ,300,100,30);
         login.setBackground(Color.BLACK);
@@ -55,12 +56,19 @@ public class Login extends JFrame implements ActionListener {//jframe is a class
         login.addActionListener(this);
         add(login);
 
-        register = new JButton("REGISTER");
-        register.setBounds(450, 300, 100, 30);
-        register.setBackground(Color.BLACK);
-        register.setForeground(Color.WHITE);
-        register.addActionListener(this);
-        add(register);
+        clear = new JButton("CLEAR");
+        clear.setBounds(450, 300, 100, 30);
+        clear.setBackground(Color.BLACK);
+        clear.setForeground(Color.WHITE);
+        clear.addActionListener(this);
+        add(clear);
+
+        signUp = new JButton("SIGNUP");
+        signUp.setBounds(300, 350, 250, 30);
+        signUp.setBackground(Color.BLACK);
+        signUp.setForeground(Color.WHITE);
+        signUp.addActionListener(this);
+        add(signUp);
 
         setTitle("ATM");
         setSize(800, 600);
@@ -70,11 +78,15 @@ public class Login extends JFrame implements ActionListener {//jframe is a class
 
     //overwriting the abstract menthod defined inside the actionsListner interface
     public void actionPerformed(ActionEvent ae){
-        if(ae.getSource()==login){
-
+        if(ae.getSource()==clear){
+            cardTextField.setText("");
+            pinTextField.setText("");
         }
-        else{
-
+        else if(ae.getSource()==login){
+           
+        }
+        else if(ae.getSource()==signUp){
+            
         }
     }
     public static void main(String[] args) {
